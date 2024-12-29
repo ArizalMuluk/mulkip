@@ -21,7 +21,11 @@ Before running this application, make sure you have:
 4. Run the application with the command:
 
 ```bash
-python mulkip.py
+python mulkip.py #For Windows
+```
+
+```bash
+python3 mulkip.py #For Linux
 ```
 
 5. Enter the IP address you want to search when prompted.
