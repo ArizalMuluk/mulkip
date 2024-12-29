@@ -5,8 +5,19 @@ import requests
 from intro import intros
 
 
-# Fungsi untuk menambahkan warna pada teks
-def colored_text(text, color_code):
+def hex_to_ansi(hex_color):
+    """Convert hex color to ANSI escape code"""
+    hex_color = hex_color.lstrip("#")
+    r = int(hex_color[0:2], 16)
+    g = int(hex_color[2:4], 16)
+    b = int(hex_color[4:6], 16)
+
+    ansi_code = 16 + (r // 51) * 36 + (g // 51) * 6 + (b // 51)
+    return f"38;5;{ansi_code}"
+
+
+def colored_text(text, hex_color):
+    color_code = hex_to_ansi(hex_color)
     return f"\033[{color_code}m{text}\033[0m"
 
 
@@ -42,30 +53,43 @@ def save_to_file(ip_address, info):
 
 
 if __name__ == "__main__":
-    ip_address = input(colored_text("\nEnter IP Address: ", "36"))  # Cyan
+    ip_address = input(colored_text("\nEnter IP Address: ", "#00FFF3"))
 
     if is_valid_ip(ip_address):
         info = get_ip_info(ip_address)
 
         if info:
-            print(colored_text("\nIP Address Information:", "32"))  # Green
-            print(f"IP: {colored_text(info.get('ip'), '34')}")  # Blue
-            print(f"Hostname: {colored_text(info.get('hostname'), '34')}")
-            print(f"Location: {colored_text(info.get('loc'), '34')}")
-            print(f"City: {colored_text(info.get('city'), '34')}")
-            print(f"Region: {colored_text(info.get('region'), '34')}")
-            print(f"Country: {colored_text(info.get('country'), '34')}")
-            print(f"Org: {colored_text(info.get('org'), '34')}")
+            print(colored_text("\nIP Address Information:", "#00FF00"))
+            print(
+                f"{colored_text('IP:', '#1B03A3.')} {colored_text(info.get('ip'), '#fbf8fd')}"
+            )
+            print(
+                f"{colored_text('Hostname:', '#1B03A3.')} {colored_text(info.get('hostname'), '#fbf8fd')}"
+            )
+            print(
+                f"{colored_text('Location:', '#1B03A3.')} {colored_text(info.get('loc'), '#fbf8fd')}"
+            )
+            print(
+                f"{colored_text('City:', '#1B03A3.')} {colored_text(info.get('city'), '#fbf8fd')}"
+            )
+            print(
+                f"{colored_text('Region:', '#1B03A3.')} {colored_text(info.get('region'), '#fbf8fd')}"
+            )
+            print(
+                f"{colored_text('Country:', '#1B03A3.')} {colored_text(info.get('country'), '#fbf8fd')}"
+            )
+            print(
+                f"{colored_text('Org:', '#1B03A3.')} {colored_text(info.get('org'), '#fbf8fd')}"
+            )
 
-            # Simpan informasi ke dalam file
             save_to_file(ip_address, info)
-            print(colored_text("IP TRACK SUCCES!!\n", "32"))  # Green
+            print(colored_text("IP TRACK SUCCESS!!\n", "#00FF00"))
         else:
-            print(colored_text("Can't find the IP address.", "31"))  # Red
+            print(colored_text("Can't find the IP address.", "#FF0000"))
     else:
         print(
             colored_text(
                 "Invalid IP Address format. Please enter the correct IP Address.",
-                "31",
+                "#FF0000",
             )
-        )  # Red
+        )

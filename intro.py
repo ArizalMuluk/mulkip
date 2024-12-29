@@ -40,21 +40,17 @@ def intros(text, h, s, l, border_char="-", smwt=False):
     if smwt:
         border_color = rgb_to_ansi(r, g, b)  # Warna border sama dengan warna teks
     else:
-        border_color = rgb_to_ansi(
-            255, 255, 255
-        )  # Default ke putih jika tidak ditentukan
+        border_color = rgb_to_ansi(255, 255, 255)
 
-    # Menambahkan garis pembatas
     border = (
         border_color
         + (border_char * max(len(line) for line in ascii_art.splitlines()))
         + "\033[0m"
     )
-    print(border)  # Garis pembatas di atas
+    print(border)
     print(colored_art)
     print(border)  # Garis pembatas di bawah
 
 
-# Contoh penggunaan
 if __name__ == "__main__":
     intros("Welcome to Mulkip", 94, 0.91, 0.57, border_char="*", smwt=True)
