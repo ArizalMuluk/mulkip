@@ -30,6 +30,7 @@ python mulkip.py
 ## Usage Example
 ```bash
 Enter IP Address: 8.8.8.8
+
 IP Address Information:
 IP: 8.8.8.8
 Hostname: dns.google
@@ -37,8 +38,9 @@ Location: 37.3860,-122.0838
 City: Mountain View
 Region: California
 Country: US
-Organization: Google LLC
-Information has been saved into the file 'ip_info.txt'.
+Org: Google LLC
+IP TRACK SUCCES!!
+
 ```
 
 ## Contributions
@@ -48,7 +50,7 @@ If you would like to contribute to this project, please fork this repository and
 This project is licensed under the MIT License. See the LICENSE file for more details.
 
 ## Contact
-For questions or suggestions, please contact email@example.com.
+For questions or suggestions, please contact bangmulukkerenl@gmail.com.
 
 
 ### Changes Made
