@@ -21,7 +21,7 @@ def colored_text(text, hex_color):
     return f"\033[{color_code}m{text}\033[0m"
 
 
-intros("Welcome to Mulkip", 94, 0.91, 0.57, border_char="=", smwt=True)
+intros("Wellcome to Mulkip", 94, 0.91, 0.57, border_char="=", smwt=True)
 
 
 def is_valid_ip(ip_address):
